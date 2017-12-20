@@ -3,22 +3,19 @@
 </p>
 <div class="container">
   <div class="row">
-      <table class="table">
+      <table class="table table-bordered" >
           <thead class="thead-inverse">
           <tr>
               <th class="text-center">User ID</th>
-              <th class="text-center">ID</th>
-              <th class="text-center">Title</th>
-              <th class="text-center">Body</th>
+              <th class="text-center">Details</th>
+              
           </tr>
           </thead>
           <tbody>
-           <tr *ngFor="let post of _postsArray">
-              <td class="text-center" style="width: 15px;">{{post.userId}}</td>
-              <td class="text-center" style="width: 15px;">{{post.id}}</td>
-              <td class="text-center" style="width: 200px;">{{post.title}}</td>
-              <td class="text-center">{{post.body}}</td>
-          </tr>
+           <tr *ngFor="let image of images">
+              <td class="text-center" style="width: 15px;">{{image.user_id}}</td>
+              <td class="text-center" style="width: 15px;">{{image.details}}</td>
+           </tr>
           </tbody>
       </table>
   </div>

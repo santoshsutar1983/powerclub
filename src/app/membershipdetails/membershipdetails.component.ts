@@ -1,36 +1,44 @@
 import { Component, OnInit } from '@angular/core';
-
 import { ApiService } from '../api.service';
+
 
 @Component({
   selector: 'app-membershipdetails',
   templateUrl: './membershipdetails.component.html',
   styleUrls: ['./membershipdetails.component.css']
 })
-export class MembershipdetailsComponent implements OnInit {
-  _postsArray: IPosts[];
-  //constructor() { }
-  constructor(private apiSerivce: ApiService) {
-  }
+export class MembershipdetailsComponent implements OnInit
+{
   
-  getPosts(): void {
-     console.log("on function call..");
-     this.apiSerivce.getPosts()
-         .subscribe(
-             resultArray => this._postsArray = resultArray,
-             error => console.log("Error :: " + error)
-         )
-   }
-  ngOnInit() {
-    this.getPosts();
-    console.log("onload");
+    images: any[];
+    imagesFound = false;
+    searching = false;
+    errorMessage: String;
+   constructor(private apiSerivce: ApiService)
+    {
+    } 
+  
+  handleSuccess(data)
+    // tslint:disable-next-line:one-line
+    {
+        this.imagesFound = true;
+        this.images = data.result;
+        console.log(data.result);
+    }
 
-}
-
-}
-export interface IPosts {
-  userId: number;
-  id: number;
-  title: string;
-  body: string;
+handleError(error)
+    // tslint:disable-next-line:one-line
+    {
+      console.log(Error);
+    }
+ 
+  // tslint:disable-next-line:one-line
+   ngOnInit()
+    {
+        console.log('ngOnInit cj');
+        this.apiSerivce.getMemberdetails().subscribe(
+          data => this.handleSuccess(data),
+          error => this.handleError(error),
+          () => this.searching = false);
+    }
 }

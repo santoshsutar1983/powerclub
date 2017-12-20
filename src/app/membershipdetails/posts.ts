@@ -1,6 +1,6 @@
 export interface IPosts {
-    userId: number;
-    id: number;
-    title: string;
-    body: string;
-}
+    user_id: number;
+    name: string;
+    member_type: 1;
+    admisison_date: string;
+  }
