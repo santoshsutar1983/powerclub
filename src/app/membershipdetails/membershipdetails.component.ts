@@ -10,8 +10,8 @@ import { ApiService } from '../api.service';
 export class MembershipdetailsComponent implements OnInit
 {
   
-    images: any[];
-    imagesFound = false;
+    members: any[];
+    membersFound = false;
     searching = false;
     errorMessage: String;
    constructor(private apiSerivce: ApiService)
@@ -21,8 +21,8 @@ export class MembershipdetailsComponent implements OnInit
   handleSuccess(data)
     // tslint:disable-next-line:one-line
     {
-        this.imagesFound = true;
-        this.images = data.result;
+        this.membersFound = true;
+        this.members = data.result;
         console.log(data.result);
     }
 

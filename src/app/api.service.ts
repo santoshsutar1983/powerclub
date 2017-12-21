@@ -24,6 +24,7 @@ export class ApiService
 {
 
   private API_URL = "http://topschooldev.prisms.in/rest/index.php/staff_list.json";
+  //private API_URL = "http://topschooldev.prisms.in/rest/index.php/staff_list.json";
   headers: Headers;
    options: RequestOptions;
 
