@@ -19,6 +19,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
 
 
+
 @Injectable()
 export class ApiService
 {
@@ -41,8 +42,8 @@ export class ApiService
 
           const body=
           {
-            fun_name: 'GetGalleryImages',
-            sid: 258
+            fun_name: 'GetMemberInfo',
+            sid: 483
           };
           return this.http
               .post(this.API_URL, body, this.options)
