@@ -14,19 +14,16 @@
             </div>
              <div class="panel panel-default hidden-xs hidden-sm">
                 <div class="panel-heading">
-                    <div class="panel-title text-center">Recent Plans</div>
+                    <div class="panel-title text-center">Recent Gym Plan</div>
                 </div>
-                <div class="panel-body">
-                    <!-- <div class="media">
-                        <div class="media-left media-middle">
-                            <a href="#"><img class="media-object img-circle img-thumbnail thumb48" src="" alt="Contact"></a>
-                        </div>
+                <div *ngFor="let plan of recentgymplan" class="panel-body">
+                     <div class="media">
                         <div class="media-body pt-sm">
                             <div class="text-bold">
-                                <div class="text-sm text-muted"></div>
+                                <div class="text-sm text-muted"><h6>{{plan.pkg_name}}:</h6>  {{plan.startdate}} To {{plan.enddate}}</div>
                             </div>
                         </div>
-                    </div> -->
+                    </div> 
                 </div>
             </div>
         </div> 

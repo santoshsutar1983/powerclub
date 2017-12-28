@@ -14,6 +14,7 @@ export class MembershipdetailsComponent implements OnInit
     membersFound = false;
     searching = false;
     errorMessage: String;
+    recentgymplan:any[];recentgymplanFound=false;
    constructor(private apiSerivce: ApiService)
     {
     } 
@@ -24,6 +25,8 @@ export class MembershipdetailsComponent implements OnInit
         this.membersFound = true;
         this.members = data.result;
         console.log(data.result);
+        this.recentgymplanFound=true;
+        this.recentgymplan=data.plans;
     }
 
 handleError(error)
