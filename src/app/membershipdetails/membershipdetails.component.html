@@ -1,0 +1,94 @@
+<div class="container bootstrap snippet">
+    <div  class="row ng-scope">
+        <div class="col-md-4">
+            <div *ngFor="let member of members" class="panel panel-default">
+                <div class="panel-body text-center">
+                    <div class="pv-lg"><img class="center-block img-responsive img-circle img-thumbnail thumb96" src="{{member.avatar}}" alt="profilepic"></div>
+                    <h3 class="m0 text-bold">{{member.name}}</h3>
+                    <div class="mv-lg">
+                        <p>Type : {{member.member_type}} Status : {{member.status}}</p> 
+                        
+                    </div>
+                    <div class="text-center"><a class="btn btn-primary" >Expiry {{member.end_date}}</a></div> 
+                </div>
+            </div>
+             <div class="panel panel-default hidden-xs hidden-sm">
+                <div class="panel-heading">
+                    <div class="panel-title text-center">Recent Gym Plan</div>
+                </div>
+                <div *ngFor="let plan of recentgymplan" class="panel-body">
+                     <div class="media">
+                        <div class="media-body pt-sm">
+                            <div class="text-bold">
+                                <div class="text-sm text-muted"><h6>{{plan.pkg_name}}:</h6>  {{plan.startdate}} To {{plan.enddate}}</div>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div> 
+        <div class="col-md-8">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="pull-right">
+                        <div class="btn-group dropdown" uib-dropdown="dropdown">
+                            <!-- <button class="btn btn-link dropdown-toggle" uib-dropdown-toggle="" aria-haspopup="true" aria-expanded="false"><em class="fa fa-ellipsis-v fa-lg text-muted"></em></button> -->
+                            <ul class="dropdown-menu dropdown-menu-right animated fadeInLeft" role="menu">
+                                <li><a href=""><span>Send by message</span></a></li>
+                                <li><a href=""><span>Share contact</span></a></li>
+                                <li><a href=""><span>Block contact</span></a></li>
+                                <li><a href=""><span class="text-warning">Delete contact</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="h4 text-center">Member Information</div>
+                    <div *ngFor="let member of members" class="row pv-lg">
+                        <div class="col-lg-2"></div>
+                        <div class="col-lg-8">
+                            <form class="form-horizontal ng-pristine ng-valid">
+                                <div class="form-group">
+                                    <label class="control-label" for="inputContact1">Name</label>
+                                    <div class="">
+                                        <input class="form-control" readonly="readonly"  id="inputContact1" type="text" placeholder="" value="{{member.name}}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="inputContact2">Email</label>
+                                    <div class="">
+                                        <input class="form-control" readonly="readonly" id="inputContact2" type="email" value="{{member.email}}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="inputContact3">mobile</label>
+                                    <div class="">
+                                        <input class="form-control" readonly="readonly" id="inputContact3" type="text" value="{{member.mobile1}}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="inputContact4">Emergency Name</label>
+                                    <div class="">
+                                        <input class="form-control" readonly="readonly" id="inputContact4" type="text" value="{{member.emergency_name}}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="inputContact5">Emergency Contact</label>
+                                    <div class="">
+                                        <input class="form-control" readonly="readonly" id="inputContact5" type="text" value="{{member.emergergency_phone}}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="inputContact6">Address</label>
+                                    <div class="">
+                                        <textarea class="form-control" readonly="readonly" id="inputContact6" row="4">{{member.caddressl1}}</textarea>
+                                    </div>
+                                </div>
+                       
+                        </form>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
