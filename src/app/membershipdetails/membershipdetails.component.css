@@ -19,3 +19,6 @@ body{
     width: 48px!important;
     height: 48px!important;
 }
+.panel-body{
+    padding:5%;
+}
