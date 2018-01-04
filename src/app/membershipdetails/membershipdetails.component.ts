@@ -30,12 +30,10 @@ export class MembershipdetailsComponent implements OnInit
     }
 
 handleError(error)
-    // tslint:disable-next-line:one-line
-    {
+   {
       console.log(Error);
     }
- 
-  // tslint:disable-next-line:one-line
+
    ngOnInit()
     {
         console.log('ngOnInit cj');

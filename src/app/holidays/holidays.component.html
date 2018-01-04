@@ -1,0 +1,24 @@
+<div class="h4 text-center">
+    Holidays List
+</div>
+<div class="table-responsive" >
+  <table class="table table-striped">
+      <thead>
+          <tr class="btn-primar">
+              <!-- <th>Sr.No</th> -->
+              <th>Date</th>
+              <th>Occasion</th>
+              <th>Details</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let h of holidays;let i=index;">
+             <!--  <td>{{i+1}}</td> -->
+              <td>{{h.hdate}}</td>
+              <td>{{h.occasion}}</td>
+              <td>{{h.details}}</td>
+          </tr>
+
+      </tbody>
+  </table>
+</div>

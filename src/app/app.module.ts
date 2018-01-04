@@ -7,15 +7,22 @@ import { HttpModule } from "@angular/http";
 import { AppComponent } from './app.component';
 import { MembershipdetailsComponent } from './membershipdetails/membershipdetails.component';
 import { ApiService } from './api.service';
+import { HolidaysComponent } from './holidays/holidays.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MembershipdetailsComponent
+    MembershipdetailsComponent,
+    HolidaysComponent
   ],
   imports: [
     BrowserModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot([
+            { path : '',component : AppComponent },
+            { path : 'memberdetails',component : MembershipdetailsComponent },
+            { path : 'holidays',component : HolidaysComponent }
+          ])
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]

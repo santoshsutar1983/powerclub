@@ -27,7 +27,7 @@ export class ApiService
   private API_URL = "http://topschooldev.prisms.in/rest/index.php/staff_list.json";
   //private API_URL = "http://topschooldev.prisms.in/rest/index.php/staff_list.json";
   headers: Headers;
-   options: RequestOptions;
+  options: RequestOptions;
 
     constructor(public http:Http)
     {
@@ -50,6 +50,20 @@ export class ApiService
               .map(res=>res.json())
               .catch(this.handleError);
      }
+
+     getHolidaysdetails(): Observable<any>
+     {
+
+         const body=
+         {
+           fun_name: 'GetHolidaysInfo',
+           sid: 483
+         };
+         return this.http
+             .post(this.API_URL, body, this.options)
+             .map(res=>res.json())
+             .catch(this.handleError);
+    }
      
      private handleError(error: Response)
      {
