@@ -8,12 +8,14 @@ import { AppComponent } from './app.component';
 import { MembershipdetailsComponent } from './membershipdetails/membershipdetails.component';
 import { ApiService } from './api.service';
 import { HolidaysComponent } from './holidays/holidays.component';
+import { NotificationsComponent } from './notifications/notifications.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MembershipdetailsComponent,
-    HolidaysComponent
+    MembershipdetailsComponent,    
+    HolidaysComponent,
+    NotificationsComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +23,9 @@ import { HolidaysComponent } from './holidays/holidays.component';
     RouterModule.forRoot([
             { path : '',component : AppComponent },
             { path : 'memberdetails',component : MembershipdetailsComponent },
-            { path : 'holidays',component : HolidaysComponent }
+            { path : 'holidays',component : HolidaysComponent },
+            { path : 'notifications',component : NotificationsComponent }
+
           ])
   ],
   providers: [ApiService],

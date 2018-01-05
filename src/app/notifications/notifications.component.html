@@ -1,0 +1,24 @@
+<div class="h4 text-center">
+  Notifications
+</div>
+<div class="table-responsive" >
+<table class="table table-striped">
+    <thead>
+        <tr class="info">
+            <!-- <th>Sr.No</th> -->
+            <th>Notification</th>
+            <th>Date</th>
+           <!--  <th>Details</th> -->
+        </tr>
+    </thead>
+    <tbody>
+        <tr  *ngFor="let notif of notifications;let i=index;">
+           <!--  <td>{{i+1}}</td> -->
+            <td style="width:90%">{{notif.anntext}}</td>
+            <td style="width:9%">{{notif.created}}</td>
+            <!-- <td>{{h.details}}</td> -->
+        </tr>
+
+    </tbody>
+</table>
+</div>

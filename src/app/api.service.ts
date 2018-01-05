@@ -64,6 +64,20 @@ export class ApiService
              .map(res=>res.json())
              .catch(this.handleError);
     }
+
+    getNotificationsdetails(): Observable<any>
+    {
+
+        const body=
+        {
+          fun_name: 'GetNotificationsInfo',
+          sid: 483
+        };
+        return this.http
+            .post(this.API_URL, body, this.options)
+            .map(res=>res.json())
+            .catch(this.handleError);
+   }
      
      private handleError(error: Response)
      {

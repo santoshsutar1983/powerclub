@@ -4,19 +4,19 @@
 <div class="table-responsive" >
   <table class="table table-striped">
       <thead>
-          <tr class="btn-primar">
+          <tr class="info">
               <!-- <th>Sr.No</th> -->
               <th>Date</th>
               <th>Occasion</th>
-              <th>Details</th>
+             <!--  <th>Details</th> -->
           </tr>
       </thead>
       <tbody>
-          <tr *ngFor="let h of holidays;let i=index;">
+          <tr  *ngFor="let h of holidays;let i=index;">
              <!--  <td>{{i+1}}</td> -->
               <td>{{h.hdate}}</td>
               <td>{{h.occasion}}</td>
-              <td>{{h.details}}</td>
+              <!-- <td>{{h.details}}</td> -->
           </tr>
 
       </tbody>
