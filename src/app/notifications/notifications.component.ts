@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
+import { ActivatedRoute } from '@angular/router'
 
 @Component({
   selector: 'app-notifications',
@@ -8,11 +9,18 @@ import { ApiService } from '../api.service';
 })
 export class NotificationsComponent implements OnInit {
 
+  uid: String = '';
+  sid: String = '';
   notifications: any[];
   notificationsFound = false;
   searching = false;
   errorMessage: String;
-  constructor(private apiSerivce: ApiService) { }
+
+  constructor(private apiSerivce: ApiService,private route: ActivatedRoute) { 
+    this.uid = this.route.snapshot.params.uid;
+    this.sid = this.route.snapshot.params.sid;
+    console.log(this.route.snapshot.params);
+  }
 
   handleSuccess(data)
       {
@@ -28,7 +36,7 @@ export class NotificationsComponent implements OnInit {
   ngOnInit()
   {
     console.log('ngOnInit holidays');
-          this.apiSerivce.getNotificationsdetails().subscribe(
+          this.apiSerivce.getNotificationsdetails(this.uid,this.sid).subscribe(
             data => this.handleSuccess(data),
             error => this.handleError(error),
             () => this.searching = false);

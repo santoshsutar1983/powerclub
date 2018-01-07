@@ -9,22 +9,25 @@ import { MembershipdetailsComponent } from './membershipdetails/membershipdetail
 import { ApiService } from './api.service';
 import { HolidaysComponent } from './holidays/holidays.component';
 import { NotificationsComponent } from './notifications/notifications.component';
+import { NotFoundComponentComponent } from './not-found-component/not-found-component.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MembershipdetailsComponent,    
     HolidaysComponent,
-    NotificationsComponent
+    NotificationsComponent,
+    NotFoundComponentComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     RouterModule.forRoot([
             { path : '',component : AppComponent },
-            { path : 'memberdetails',component : MembershipdetailsComponent },
-            { path : 'holidays',component : HolidaysComponent },
-            { path : 'notifications',component : NotificationsComponent }
+            { path : 'memberdetails/:uid/:sid',component : MembershipdetailsComponent },
+            { path : 'holidays/:uid/:sid',component : HolidaysComponent },
+            { path : 'notifications/:uid/:sid',component : NotificationsComponent },
+            { path : '**',component: NotFoundComponentComponent}
 
           ])
   ],
@@ -32,3 +35,4 @@ import { NotificationsComponent } from './notifications/notifications.component'
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+ 

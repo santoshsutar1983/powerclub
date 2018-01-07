@@ -37,13 +37,14 @@ export class ApiService
           this.options = new RequestOptions({ headers: this.headers });
     }
        //private _postsURL = "https://jsonplaceholder.typicode.com/posts";
-      getMemberdetails(): Observable<any>
+      getMemberdetails(uid,sid): Observable<any>
       {
 
           const body=
           {
+            uid: uid,
             fun_name: 'GetMemberInfo',
-            sid: 483
+            sid: sid
           };
           return this.http
               .post(this.API_URL, body, this.options)
@@ -51,13 +52,14 @@ export class ApiService
               .catch(this.handleError);
      }
 
-     getHolidaysdetails(): Observable<any>
+     getHolidaysdetails(uid,sid): Observable<any>
      {
 
          const body=
          {
+           uid: uid,
            fun_name: 'GetHolidaysInfo',
-           sid: 483
+           sid: sid
          };
          return this.http
              .post(this.API_URL, body, this.options)
@@ -65,13 +67,14 @@ export class ApiService
              .catch(this.handleError);
     }
 
-    getNotificationsdetails(): Observable<any>
+    getNotificationsdetails(uid,sid): Observable<any>
     {
 
         const body=
         {
+          uid: uid,
           fun_name: 'GetNotificationsInfo',
-          sid: 483
+          sid: sid
         };
         return this.http
             .post(this.API_URL, body, this.options)
