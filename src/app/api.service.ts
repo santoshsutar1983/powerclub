@@ -32,8 +32,7 @@ export class ApiService
     constructor(public http:Http)
     {
           console.log('Data service connected...');
-          this.headers = new Headers({ 'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*'});
+          this.headers = new Headers({ 'Content-Type': 'application/json'});
           this.options = new RequestOptions({ headers: this.headers });
     }
        //private _postsURL = "https://jsonplaceholder.typicode.com/posts";
@@ -81,7 +80,7 @@ export class ApiService
             .map(res=>res.json())
             .catch(this.handleError);
    }
-     
+
      private handleError(error: Response)
      {
        return Observable.throw(error.statusText);
