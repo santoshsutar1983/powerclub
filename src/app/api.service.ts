@@ -32,7 +32,8 @@ export class ApiService
     constructor(public http:Http)
     {
           console.log('Data service connected...');
-          this.headers = new Headers({ 'Content-Type': 'application/json'});
+          this.headers = new Headers({ 'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*'});
           this.options = new RequestOptions({ headers: this.headers });
     }
        //private _postsURL = "https://jsonplaceholder.typicode.com/posts";
