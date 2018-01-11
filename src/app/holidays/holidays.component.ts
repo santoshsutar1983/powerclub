@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 
@@ -8,11 +9,19 @@ import { ApiService } from '../api.service';
   styleUrls: ['./holidays.component.css']
 })
 export class HolidaysComponent implements OnInit {
+
+      uid: String = '';
+      sid: String = '';
       holidays: any[];
       holidaysFound = false;
       searching = false;
       errorMessage: String;
-      constructor(private apiSerivce: ApiService) { }
+
+      constructor(private apiSerivce: ApiService, private route: ActivatedRoute) {
+        this.uid = this.route.snapshot.params.uid;
+        this.sid = this.route.snapshot.params.sid;
+        console.log(this.route.snapshot.params);
+       }
 
   handleSuccess(data)
       {
@@ -20,7 +29,8 @@ export class HolidaysComponent implements OnInit {
           this.holidays = data.holidaysresult;
           console.log(data.holidaysresult);
       }
- handleError(error)
+  
+  handleError(error)
       {
         console.log(Error);
       }
@@ -28,7 +38,7 @@ export class HolidaysComponent implements OnInit {
   ngOnInit()
   {
     console.log('ngOnInit holidays');
-          this.apiSerivce.getHolidaysdetails().subscribe(
+          this.apiSerivce.getHolidaysdetails(this.uid,this.sid).subscribe(
             data => this.handleSuccess(data),
             error => this.handleError(error),
             () => this.searching = false);

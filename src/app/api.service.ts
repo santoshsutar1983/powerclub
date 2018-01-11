@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 
-import {Observable} from "rxjs/Observable";
-import "rxjs/Rx";
+import {Observable} from 'rxjs/Observable';
+// tslint:disable-next-line:import-blacklist
+import 'rxjs/Rx';
 
 import { Http, Headers, Response, RequestOptions} from '@angular/http';
 
@@ -24,61 +25,65 @@ import 'rxjs/add/operator/switchMap';
 export class ApiService
 {
 
-  private API_URL = "http://topschooldev.prisms.in/rest/index.php/staff_list.json";
-  //private API_URL = "http://topschooldev.prisms.in/rest/index.php/staff_list.json";
+
+  private API_URL = '/rest/index.php/staff_list.json';
+  // private API_URL1 = "http://topschooldev.prisms.in/plugins/restapi/staff_list/data.json";
   headers: Headers;
   options: RequestOptions;
 
-    constructor(public http:Http)
+    constructor(public http: Http)
     {
           console.log('Data service connected...');
           this.headers = new Headers({ 'Content-Type': 'application/json',
           'Access-Control-Allow-Origin': '*'});
           this.options = new RequestOptions({ headers: this.headers });
     }
-       //private _postsURL = "https://jsonplaceholder.typicode.com/posts";
-      getMemberdetails(): Observable<any>
+       // private _postsURL = "https://jsonplaceholder.typicode.com/posts";
+      getMemberdetails(uid, sid): Observable<any>
       {
 
-          const body=
+          const body =
           {
+            uid: uid,
             fun_name: 'GetMemberInfo',
-            sid: 483
+            sid: sid
           };
           return this.http
               .post(this.API_URL, body, this.options)
-              .map(res=>res.json())
+              .map(res => res.json())
               .catch(this.handleError);
      }
 
-     getHolidaysdetails(): Observable<any>
+     getHolidaysdetails(uid, sid): Observable<any>
      {
 
-         const body=
+         const body =
          {
+           uid: uid,
            fun_name: 'GetHolidaysInfo',
-           sid: 483
+           sid: sid
          };
          return this.http
              .post(this.API_URL, body, this.options)
-             .map(res=>res.json())
+             .map(res => res.json())
              .catch(this.handleError);
     }
 
-    getNotificationsdetails(): Observable<any>
+    getNotificationsdetails(uid, sid): Observable<any>
     {
 
-        const body=
+        const body =
         {
+          uid: uid,
           fun_name: 'GetNotificationsInfo',
-          sid: 483
+          sid: sid
         };
         return this.http
             .post(this.API_URL, body, this.options)
             .map(res=>res.json())
             .catch(this.handleError);
    }
-     
+
      private handleError(error: Response)
      {
        return Observable.throw(error.statusText);
