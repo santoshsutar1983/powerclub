@@ -1,0 +1,7 @@
+{
+  "/rest/*":{
+    "target":"http://topschooldev.prisms.in/",
+    "secure":false,
+    "changeOrigin": true
+  }
+}
